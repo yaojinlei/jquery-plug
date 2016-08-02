@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>网友红叶分享原创表单验证Jquery插件(最新修正版)</title>
+    <meta name="Keywords"
+          content="网友红叶分享原创表单验证Jquery插件(最新修正版),Jquery插件,Jquery原创,Jquery资源,Jquery特效,js特效,div+css,JquerySchool"/>
+    <meta name="description"
+          content="JquerySchool是一个专门分享jquery资源、jquery插件、jquery特效的一个网站,完全开放源代码,把实际开发中应用最多、最实用的Jquery资源抽取出来再加以精心编排,让广大网友能以最短的时间、花最少的精力去真正掌握jQuery开发的知识。"/>
+    <style type="text/css">
+        textarea {
+            width: 180px;
+            border: 1px solid #ccc;
+            padding: 2px;
+        }
+
+        table {
+            border: 1px solid #666;
+        }
+    </style>
+    <script src="../jquery-1.9.1.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/vdform.js"></script>
+</head>
+<body>
+<br/><br/>
+<center>
+    <div style="font-size:15px; font-weight:bold; text-align:center; line-height:25px;">网友红叶分享原创表单验证Jquery插件(最新修正版)<br/>
+        JquerySchool网站出品（<a href="http://www.jq-school.com" target="_blank">http://www.jq-school.com</a>）<br/>
+        Vdform网站:（<a href="http://www.vdform.com" target="_blank">http://www.vdform.com</a>）
+    </div>
+</center>
+<h2 style="display:block; text-align:center;">示例</h2>
+
+<div>
+    <form id="testform" action="" method="post">
+        <table border="1px solid #666" align="center">
+            <tr>
+                <td> 真实姓名:</td>
+                <td><input type="text" name="Name"
+                           validata-options="validType:'Require|Chinese',msg:'不能为空|真实姓名只允许中文,并且大于两个字'"></td>
+            </tr>
+            <tr>
+                <td>英文名:</td>
+                <td><input type="text" name="Nick" validata-options="validType:'Require|English',msg:'不能为空|英文名只允许英文字母'">
+                </td>
+            </tr>
+            <tr>
+                <td>主页:</td>
+                <td><input type="text" name="Homepage" validata-options="validType:'Url',msg:'非法的Url'"></td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td><input type="password" name="Password" validata-options="validType:'SafeString',msg:'密码不符合安全规则'">
+                </td>
+            </tr>
+            <tr>
+                <td>重复:</td>
+                <td><input type="password" name="Passwordt"
+                           validata-options="validType:'Repeat',to:'Password',msg:'两次输入的密码不一致'"></td>
+            </tr>
+            <tr>
+                <td>信箱:</td>
+                <td><input type="text" name="Email" validata-options="validType:'Email',msg:'信箱格式不正确'"></td>
+            </tr>
+            <tr>
+                <td>QQ：</td>
+                <td><input type="text" name="QQ" validata-options="required:false,validType:'QQ',msg:'QQ号码不存在'"></td>
+            </tr>
+            <tr>
+                <td>身份证号码：</td>
+                <td><input type="text" name="Card" validata-options="validType:'IdCard',msg:'身份证号码不正确'"></td>
+            </tr>
+            <tr>
+                <td>年龄：</td>
+                <td><input type="text" name="Card"
+                           validata-options="validType:'Range',min:'18',max:'28',msg:'年龄必须在18~28之间'"></td>
+            </tr>
+            <tr>
+                <td>年龄(大于18岁的)：</td>
+                <td><input type="text" name="Card" validata-options="validType:'Compare',compare:'>18',msg:'年龄必须大于18'">
+                </td>
+            </tr>
+            <tr>
+                <td>电话：</td>
+                <td><input type="text" name="Phone" validata-options="required:false,validType:'Phone',msg:'电话号码不正确'">
+                </td>
+            </tr>
+            <tr>
+                <td>手机：</td>
+                <td><input type="text" name="Mobile" validata-options="required:false,validType:'Mobile',msg:'手机号码不正确'">
+                </td>
+            </tr>
+            <tr>
+                <td>生日(yyyy-mm-dd)：</td>
+                <td><input name="Birthday" validata-options="validType:'Date',format:'ymd',msg:'生日日期不存在'"></td>
+            </tr>
+            <tr>
+                <td>上传照片：</td>
+                <td><input type="file"
+                           validata-options="validType:'Custom',regexp:'.+\.(jpg|jpeg|jpg|gif)$',msg:'只能上传jpg|jpeg|jpg|gif文件在'"/>
+                </td>
+            </tr>
+            <tr>
+                <td>邮政编码：</td>
+                <td><input name="Zip" validata-options="validType:'Zip',msg:'邮政编码不正确'"></td>
+            </tr>
+            <tr>
+                <td>操作系统：</td>
+                <td><select name="Operation" validata-options="validType:'Require',msg:'未选择所用操作系统'">
+                    <option value="">选择您所用的操作系统</option>
+                    <option value="Win98">Win98</option>
+                    <option value="Win2k">Win2k</option>
+                    <option value="WinXP">WinXP</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>所在省份：</td>
+                <td> 广东
+                    <input name="Province" value="1" type="radio">
+                    陕西
+                    <input name="Province" value="2" type="radio">
+                    浙江
+                    <input name="Province" value="3" type="radio">
+                    江西
+                    <input name="Province" value="4" type="radio" validata-options="validType:'Group',msg:'必须选定一个省份'">
+                </td>
+            </tr>
+            <tr>
+                <td>爱好：</td>
+                <td>运动
+                    <input name="Favorite" value="1" type="checkbox">
+                    上网
+                    <input name="Favorite" value="2" type="checkbox">
+                    听音乐
+                    <input name="Favorite" value="3" type="checkbox">
+                    看书
+                    <input name="Favorite" value="4" type="checkbox"
+                           validata-options="validType:'Group',min:'3',msg:'至少选择三种爱好'"></td>
+            </tr>
+            <tr>
+                <td>自我介绍：</td>
+                <td><textarea name="Description" validata-options="validType:'Limit',max:'10',msg:'自我介绍内容必须在10个字之内'">中文是一个字</textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td>自传：</td>
+                <td><textarea name="History" validata-options="validType:'LimitB',max:10,msg:'自传内容必须在3~10个字节之内'">中文是两个字节t</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>aa：</td>
+                <td><textarea name="aaa"
+                              validata-options="validType:'Ajax',url:'',method:'post',msg:'ajax校验'">aa</textarea></td>
+            </tr>
+            <tr>
+                <td style="text-align:center; margin:0 auto"><input name="Submit" type="submit" value="确定提交"></td>
+                <td style="text-align:center; margin:0 auto"><input name="btn" id='btn' type="button" value="按钮提交"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        $('#testform').checkForm();
+        $("#btn").click(function () {
+            $('#testform').submit();
+        });
+    </script>
+</div>
+</body>
+</html>

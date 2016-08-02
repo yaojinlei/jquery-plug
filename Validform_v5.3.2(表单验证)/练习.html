@@ -1,0 +1,72 @@
+<html>
+<meta charset="UTF-8">
+<head>
+    <title>用户登记</title>
+    <link rel="stylesheet" href="./Validform_v5.3.2/demo/css/style.css"/>
+    <style type="text/css">
+        .ab {
+            border: 1px solid #008000;
+        }
+
+        .ac {
+            border: 1px solid red;
+            /*box-shadow:1px 1px 6px #ee3b3b;*/
+
+        }
+    </style>
+</head>
+<body>
+<table border=3 width=1000 height=500 bordercolor="#336699" align=center>
+    <tr>
+        <td>
+            <p align=center><font size=7 color="#00ff00">用户登记</font></p>
+            <hr>
+            <p align=center>亲爱的用户，欢迎您访问我们的网站，请填写您的个人信息，便于我们及时与您联系。</p>
+
+            <form id="form">
+                <p>姓名：<input type=text name=xing ming placeholder="请输入你的姓名"
+                             class="validate[required],custom[chinese]"><br><br>
+                    年龄：<input type=text name=nian ling placeholder="请输入你的年龄" class="validate[required],custom[integer],[maxSize[3]"><br><br>
+                    性别：<input type=radio name=xingbie value=femal checked>男<input type=radio name=xingbie value=mal>女
+                </p>
+                <br/>
+                miam: <input type="text" placeholder="miam" class="validate[required,custom[onlyLetterNumber]"/>
+                <br/>
+                <p>文化程度：<select name=wnhua size=1 class="groupRequired[grp]">
+                    <option value="xiaoxue" selected>小学
+                    <option value="高中">高中
+                    <option value="大学">大学
+                </select>
+                    职业：<select name=zhiye>
+                        <option value=yiliao selected>医疗
+                        <option value=gongwuyuan>公务员
+                        <option value=zaiduxuesheng>在读学生
+                    </select>
+                    E-mail:<input type=text name=mail placeholder="邮箱" class="validate[required],custom[email]"></p>
+                <p>你的爱好：</p>
+
+                <p class="groupRequired[grp]"><input type=checkbox name=aihao value=dian>电影
+                    <input type=checkbox name=aihao value=di是an>运动
+                    <input type=checkbox name=aihao value=ddan>音乐
+                    <input type=checkbox name=aihao value=dddan>跳舞
+                </p>
+
+                <p class="groupRequired[grp]"><input type=checkbox name=aihao value=diasan>阅读
+                    <input type=checkbox name=aihao value=diawqn>上网
+                    <input type=checkbox name=aihao value=diasn>聊天
+                    <input type=checkbox name=aihao value=disdan>交友</p>
+
+                <p><input type=submit value="提交">
+                    <input type=reset value="全部重写"></form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+<script type="text/javascript" src="./Validform_v5.3.2/demo/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./Validform_v5.3.2/demo/js/Validform_v5.3.2_min.js"></script>
+<!--<script type="text/javascript" src="js/jquery.validationEngine.js"></script>-->
+<script type="text/javascript">
+
+
+</script>

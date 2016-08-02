@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>jquery在线qq客服返回顶部特效</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Microsoft YaHei';
+        }
+
+        body {
+            font-size: 12px;
+            height: 2000px;
+        }
+
+        img {
+            border: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        h1, h2, h3, h4, h5, h6, i, b, s, u {
+            font-size: 12px;
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        span, strong {
+            font-weight: normal;
+        }
+
+        #leftsead {
+            width: 131px;
+            height: 143px;
+            position: fixed;
+            top: 258px;
+            right: 0px;
+            z-index: 999;
+        }
+
+        * html #leftsead {
+            margin-top: 258px;
+            position: absolute;
+            top: expression(eval(document.documentElement.scrollTop));
+        }
+
+        #leftsead li {
+            width: 131px;
+            height: 60px;
+        }
+
+        #leftsead li img {
+            float: right;
+        }
+
+        #leftsead li a {
+            height: 49px;
+            float: right;
+            display: block;
+            min-width: 47px;
+            max-width: 131px;
+        }
+
+        #leftsead li a .shows {
+            display: block;
+        }
+
+        #leftsead li a .hides {
+            margin-right: -143px;
+            cursor: pointer;
+            cursor: hand;
+        }
+
+        #leftsead li a.youhui .hides {
+            position: absolute;
+            right: 190px;
+            top: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="leftsead">
+    <ul>
+        <li>
+            <a href="http://www.jq-school.com" target="_blank"> <img src="images/ll01.png" width="131" height="49" class="hides"/><img src="images/l01.png" width="47" height="49" class="shows"/></a>
+        </li>
+        <li><a href="http://www.jq-school.com" target="_blank"> <img src="images/ll03.png" width="131" height="49" class="hides"/><img src="images/l03.png" width="47" height="49" class="shows"/></a>
+        </li>
+        <li>
+            <a href="http://wp.qq.com/wpa/qunwpa?idkey=47d9817e9e09f61b288b8ad6d33fb18cbd659ca6773f663918d6e5d3a2981a12"><img src="images/ll04.png" width="131" height="49" class="hides"/><img src="images/l04.png" width="47" height="49" class="shows"/>
+            </a>
+        </li>
+        <li>
+            <a id="c_btn"> <img src="images/ll05.png" width="131" height="49" class="hides"/><img src="images/l05.png" width="47" height="49" class="shows"/></a>
+        </li>
+        <li>
+            <a id="top_btn"> <img src="images/ll06.png" width="131" height="49" class="hides"/><img src="images/l06.png" width="47" height="49" class="shows"/></a>
+        </li>
+    </ul>
+</div>
+<!--leftsead end-->
+<script src="js/jq.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#leftsead a").hover(function () {
+            if ($(this).prop("className") == "youhui") {
+
+                $(this).children("img.hides").animate({width: '145px', height: '343px', top: '2px'}, 600);
+            } else {
+                $(this).children("img.hides").show();
+
+                $(this).children("img.hides").animate({marginRight: '0px'}, 'slow');
+                $(this).children("img.shows").animate({width: '0px'}, 200);
+            }
+        }, function () {
+            if ($(this).prop("className") == "youhui") {
+
+                $(this).children("img.hides").animate({width: '0', height: '0', top: '150px'}, 600);
+            } else {
+                $(this).children("img.hides").animate({marginRight: '-143px'}, 'slow', function () {
+                    $(this).hide();
+                    $(this).next("img.shows").animate({width: '47px'}, 200);
+                });
+            }
+        });
+
+        $("#top_btn").click(function () {
+            if (scroll == "off") return;
+            $("html,body").animate({scrollTop: 0}, 600);
+        });
+        $("#c_btn").click(function () {
+            if (scroll == "off") return;
+            $("html,body").animate({scrollTop: 2694}, 600);
+        });
+    });
+</script>
+</body>
+</html>

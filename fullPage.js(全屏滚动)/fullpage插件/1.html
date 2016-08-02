@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fullpage插件的使用</title>
+	<link rel="stylesheet" href="css/jquery.fullPage.css">
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/jquery.fullPage.min.js"></script>
+	<style>
+		.div1{
+			background:red;
+		}
+		.div2{
+			background:yellow;
+		}
+		.div3{
+			background:purple;
+		}
+		.div4{
+			background:gray;
+		}
+		.section{
+			text-align:center;
+		}
+		.div2 .first{
+			background:blue;
+		}
+		.div2 .second{
+			background:pink;
+		}
+		.div2 .third{
+			background:black;
+		}
+		
+
+
+
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div class="section div1"><img src="images/a.jpg" style="width:100% height:100%" alt=""></div>
+		<div class="section div2">
+			<div class="slide">播放图第一张</div>
+			<div class="slide first">播放图第二张</div>
+			<div class="slide second">播放图第三张</div>
+			<div class="slide third">播放图第四张</div>
+		</div>
+		<div class="section div3"><img src="images/c.jpg" style="width:100% height:100%" alt=""></div>
+		<div class="section div4"><img src="images/d.jpg" style="width:100% height:100%" alt=""></div>
+	</div>
+
+	
+</body>
+<script>
+	$(function(){
+		$("#main").fullpage();
+
+	});
+
+
+
+</script>
+</html>

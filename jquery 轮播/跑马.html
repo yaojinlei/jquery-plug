@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*容器设置*/
+        .player {
+            width: 216px;
+            height: 248px;
+            background: url(http://i2.itc.cn/20120117/2cc0_da8f6c82_c8da_693d_7714_9533a013006a_3.jpg) no-repeat;
+            background-color: #ede1d1;
+            position: relative;
+            padding: 13px 0px 0px 12px;
+        }
+
+        .player ul {
+            width: 198px;
+            height: 213px;
+            border: solid 1px #ebe2d3;
+            overflow: hidden;
+        }
+
+        .player li {
+            width: 196px;
+            height: 211px;
+            border: solid 1px #b9a686;
+            position: relative;
+        }
+
+        /*播放按钮编号*/
+        .number {
+            position: absolute;
+            top: 233px;
+            left: 147px;
+            width: 70px;
+            height: 18px;
+        }
+
+        .number a {
+            display: block;
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: url(http://i2.itc.cn/20120117/2cc0_da8f6c82_c8da_693d_7714_9533a013006a_14.jpg) no-repeat;
+            position: absolute;
+            font-size: 12px;
+            font-family: "宋体";
+            color: #732a0a;
+            text-align: center;
+            line-height: 15px;
+        }
+
+        .number .active {
+            color: #F79321;
+        }
+
+        .number .num1 {
+            top: 0px;
+            left: 0px;
+        }
+
+        .number .num2 {
+            top: 0px;
+            left: 16px;
+        }
+
+        .number .num3 {
+            top: 0px;
+            left: 32px;
+        }
+
+        .number .num4 {
+            top: 0px;
+            left: 48px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="player">
+    <ul>
+        <li><img src="http://i2.itc.cn/20120117/2cc0_da8f6c82_c8da_693d_7714_9533a013006a_16.jpg" width="196"
+                 height="211" title="十大超级军团称号"/></li>
+        <li><img src="http://i2.itc.cn/20120117/2cc0_da8f6c82_c8da_693d_7714_9533a013006a_17.jpg" width="196"
+                 height="211" title="万元现金"/></li>
+        <li><img src="http://i2.itc.cn/20120117/2cc0_da8f6c82_c8da_693d_7714_9533a013006a_18.jpg" width="196"
+                 height="211" title="畅游一卡通"/></li>
+        <li><img src="http://i2.itc.cn/20120117/2cc0_da8f6c82_c8da_693d_7714_9533a013006a_19.jpg" width="196"
+                 height="211" title="军团特权值"/></li>
+    </ul>
+    <div class="number"></div>
+</div>
+<div>
+    <a href="javascript:void(0);" class="prev">上一个</a>
+    <a href="javascript:void(0);" class="next">下一个</a>
+</div>
+<!--<script type="text/javascript" src="http://www1.changyou.com/scripts/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="http://www1.changyou.com/scripts/jquery.cycle.all.min.js"></script>-->
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+<script type="text/javascript">
+
+    $('.player ul').cycle({
+        fx: 'fade',
+        timeout: 4000, // 幻灯片过渡间隔，单位是毫秒 (若值为0则不自动切换)
+        pause: 1, // 1    值：布尔值，作用：决定鼠标指上去时是否暂停
+        pager: '.number',// 按钮容器元素
+        prev: '.prev',
+        next: '.next',
+        speed:1000,
+        pagerEvent: 'click', // 按钮驱动页面导航的事件
+        cleartype: !$.support.opacity, // 若为true，则应用clearType修正 (专为IE提供)是否支持半透明效果
+        activePagerClass: 'active', // 当按钮链接被激活时的css类名
+        pagerAnchorBuilder: function (idx, slide) {  // 用于建立按钮超链接的回调函数:// function(index, DOMelement)
+            idx += 1;
+            return '<a href="javascript:void(0)" class="num' + idx + '">' + idx + '</a>';
+        }
+    });
+
+
+</script>

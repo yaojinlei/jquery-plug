@@ -1,0 +1,42 @@
+@charset "utf-8";
+/**
+ Written by:wanghuan
+ Created Date: 2012-03-08												
+ Copyright：2005-2012 www.techholder.com Inc. All rights reserved.
+**/
+
+
+/*Initialization style*/
+body{font-family:Arial,Helvetica,sans-serif;color:#000; font-size:12px;background:url(../images/homeBg.gif) repeat-x #fff;}
+html,body,form,input,select,textarea,div,p,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,fieldset,div,strong,label,em{margin:0;padding:0;}
+ul,li{float:left;list-style:none;}
+textarea {overflow-y:auto;overflow-x:hidden;}
+input,select,img{vertical-align:middle;} 
+h2{font-size:13px; font-weight:bold;}
+table,td,img{border:0;}
+table,tr,td{border-collapse:collapse;border-spacing:0;}
+a:link,a:visited{color:#024cab;text-decoration:none;outline:none;}
+a:hover{color:#ff6407;text-decoration:underline;}
+address, caption, cite, code, dfn, em, strong, th, var,i {font-style: normal; font-weight: normal;}
+input{background:#fff;border:none;}
+
+
+/*public Control layout*/
+.thBody{width:980px;margin:0 auto;}   /*整站控制布局  宽度固定*/
+.thLeft{float:left;}
+
+
+
+.wrapperBox{width:310px;overflow:hidden;margin-left:20px;margin-right:100px;zoom:1;position:relative;}
+.wrapper{width:310px;font-family:Tahoma, Geneva, sans-serif;width:310px;position:relative;}
+.up{padding-top:10px;height:25px;}
+.up span{width:auto;height:auto;padding:0;}
+.up ul li {width:6px;height:6px;background:url(../images/img012.jpg) no-repeat -34px -5px;margin-right:2px;text-indent:-99999px;}
+.up ul li.current{color:#069;width:6px;height:6px;background:url(../images/img012.jpg) no-repeat -21px -5px;margin-right:2px;}
+.buttom{height:20px;}
+ul.yb_box_topbs{float:left;margin:5px 6px 5px 8px;}
+.up span.buttom_left,.up span.buttom_right {cursor:pointer;width:15px;float:left;height:15px;background:url(../images/img012.jpg) no-repeat;}
+.up span.buttom_right {background-position:right 0;}
+.downContent{position:relative;width:100%;}
+.downContent li{width:145px;margin-right:20px;}
+.downContent li p{width:145px;text-align:center;line-height:25px;}

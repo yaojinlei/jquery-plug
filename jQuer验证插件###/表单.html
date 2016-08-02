@@ -1,0 +1,196 @@
+<html>
+<meta charset="UTF-8">
+<head>
+    <title>用户登记</title>
+    <link rel="stylesheet" href="css/validationEngine.jquery.css"/>
+    <style type="text/css">
+        .ab {
+            border: 1px solid #008000;
+        }
+
+        .ac {
+            border: 1px solid red;
+            /*box-shadow:1px 1px 6px #ee3b3b;*/
+
+        }
+        .formError .formErrorContent {
+            width: 100%;
+            /*错误提示框颜色*/
+            /*background:#55ea55;*/
+            position:relative;
+            color:#E91E63;
+            width:auto;
+            font-size: 16px;
+            white-space:nowrap;
+
+            line-height:16px;
+            border: 1px solid #fff;
+            box-shadow: 0 0 6px #fff;
+            -moz-box-shadow: 0 0 6px #fff;
+            -webkit-box-shadow: 0 0 6px #fff;
+            padding: 3px 10px 4px 10px;
+            border-radius: 6px;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+        }
+
+        .formError .formErrorArrow div {
+            border-left: 2px solid #ddd;
+            border-right: 2px solid #ddd;
+            box-shadow: 0 2px 3px #444;
+            -moz-box-shadow: 0 2px 3px #444;
+            -webkit-box-shadow: 0 2px 3px #444;
+            font-size: 0px;
+            height: 1px;
+            /*错误提示箭头颜色*/
+            background: #000;
+            margin: 0 auto;
+            line-height: 0;
+            font-size: 0;
+            display: block;
+        }
+        input:focus{
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<table border=3 width=1000 height=500 bordercolor="#336699" align=center>
+    <tr>
+        <td>
+            <p align=center><font size=7 color="#00ff00">用户登记</font></p>
+            <hr>
+            <p align=center>亲爱的用户，欢迎您访问我们的网站，请填写您的个人信息，便于我们及时与您联系。</p>
+
+            <form id="form">
+                <p>姓名：<input type=text name="username" placeholder="请输入你的姓名"
+                             class="validate[required],custom[chinese]" id="xm">
+                    <br><br>
+                    年龄：<input type=text name=nian ling placeholder="请输入你的年龄" class="validate[required],custom[integer],maxSize[3]" id="nl"><br><br>
+                    性别：<input type=radio name=xingbie value=femal checked>男<input type=radio name=xingbie value=mal>女
+                </p>
+                <br/>
+               miam: <input type="text" placeholder="miam" class="validate[required,custom[onlyLetterNumber]"/>
+                <br/>
+
+
+                <br/>
+                <p>文化程度：<select name=wnhua size=1 class="groupRequired[grp]">
+                    <option value="xiaoxue" selected>小学
+                    <option value="高中">高中
+                    <option value="大学">大学
+                </select>
+                    职业：<select name=zhiye>
+                        <option value=yiliao selected>医疗
+                        <option value=gongwuyuan>公务员
+                        <option value=zaiduxuesheng>在读学生
+                    </select>
+                    E-mail:<input type=text name=mail placeholder="邮箱" class="validate[required],custom[email]" id="mail"></p>
+                <p>你的爱好：</p>
+
+                <p class="groupRequired[grp]"><input type=checkbox name=aihao value=dian>电影
+                    <input type=checkbox name=aihao value=di是an>运动
+                    <input type=checkbox name=aihao value=ddan>音乐
+                    <input type=checkbox name=aihao value=dddan>跳舞
+                </p>
+
+                <p class="groupRequired[grp]"><input type=checkbox name=aihao value=diasan>阅读
+                    <input type=checkbox name=aihao value=diawqn>上网
+                    <input type=checkbox name=aihao value=diasn>聊天
+                    <input type=checkbox name=aihao value=disdan>交友</p>
+
+
+
+                <dl class="row">
+                    <dt>密码
+                    </dt>
+                    <dd>
+                        <input class="input validate[required,minSize[6],maxSize[20]]" type="password" id="pwd">
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dt>确认密码
+                    </dt>
+                    <dd>
+                        <input class="input validate[condRequired[pwd],equals[pwd]]" type="password">
+                    </dd>
+                </dl>
+
+                <p><input type=submit value="提交">
+                    <input type=reset value="全部重写"></form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+<script type="text/javascript" src="../jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/jquery.validationEngine-zh_CN.js"></script>
+<script type="text/javascript" src="js/jquery.validationEngine.js"></script>
+<script type="text/javascript">
+    $('#form').validationEngine('attach', {
+
+        promptPosition: 'bottomLeft:165,-23', /*提示信息的位置，可设置为：'topRight', 'topLeft', 'bottomRight',                                                    'bottomLeft', 'centerRight', 'centerLeft', 'inline'
+                                              可设置更具体的位置，格式为："方向: X偏移值, Y偏移值"。如：bottomLeft: -20, 5*/
+//        scroll: false, //屏幕自动滚动到第一个验证不通过的位置。
+        addPromptClass: 'formError-text', /*给提示信息增加 class
+                                             Ciaoca 增强版中，增加样式如下：
+                                             'formError-noArrow' -- 无箭头样式
+                                             'formError-text' -- 纯文字样式
+                                             'formError-small' -- 精简版样式
+                                             'formError-white' -- 白色版样式
+                                             可以叠加使用，如：addPromptClass: 'formError-noArrow formError-small'*/
+        maxErrorsPerField:true,//单个元素显示错误提示的最大数量，值设为数值。默认 false 表示不限制。
+        autoPositionUpdate: true, //是否自动调整提示层的位置
+        autoHidePrompt: true,  //是否自动隐藏提示信息
+        autoHideDelay: 10000,  //自动隐藏提示信息的延迟时间 (ms)
+        focusFirstField: true, //验证未通过时，是否给第一个不通过的控件获取焦点。
+        showOneMessage: true,//是否只显示一个提示信息
+        addSuccessCssClassToField:'ab',//验证通过时，给控件增加 class，当再次验证失败时，会去除。
+        addFailureCssClassToField:'ac',//验证失败时，给控件增加 class，当再次验证通过时，会去除。
+        prettySelect:true,//是否使用了美化过的 select 选择控件
+        custom_error_messages: {//自定义提示信息
+            "#mail": {// 元素的选择器
+                'required': {
+                    'message': 'xxx@xdf.xn'
+                }
+
+            },
+            "#xm":{//元素的ID
+               'custom[chinese]' :{//要修改的名称
+                   'message': '汉子..汉子  汉子'//修改内容
+               },
+                'required': {
+                    'message': '*不输入是不行的'
+                }
+
+            },
+            "#nl":{
+                'maxSize':{
+                    'message': '您已经成仙了'
+                }
+            }
+        }
+
+
+
+
+
+    });
+
+
+//    $(function(){
+//        var ok1=false;
+//        $('input[name="username"]').focus(function(){
+//            $(this).next().text('用户名应该为3-20位之间');
+//        }).blur(function(){
+//            if($(this).val().length >= 3 && $(this).val().length <=12 && $(this).val()!=''){
+//                $(this).next().text('输入成功');
+//                ok1=true;
+//            }else{
+//                $(this).next().text('用户名应该为3-20位之间');
+//            }
+//
+//        });
+//    })
+
+</script>
